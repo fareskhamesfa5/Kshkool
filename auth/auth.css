@@ -52,8 +52,61 @@ form>label{display:block;font-size:13px;font-weight:700;margin:15px 0 6px;color:
 .security-note{text-align:center;color:#929bad;font-size:10px;margin:15px 0 0}
 footer{text-align:center;color:var(--muted);font:10px Arial,sans-serif;padding:8px 0 14px;direction:ltr}
 footer span{color:var(--yellow);padding:0 5px}
-body.dark{--bg:#0b1428;--ink:#edf3ff;--muted:#a7b4ca;--line:#2a3957;--white:#14213b}
-body.dark .theme-toggle{color:#fff}
-body.dark .login-card{color:#18223a}
-@media(max-width:900px){.login-layout{grid-template-columns:1fr;gap:22px}.intro{min-height:390px;padding:36px}.study-art{width:165px}.login-card{max-width:560px}}
-@media(max-width:540px){.page{padding:10px 13px}.topbar{height:65px}.brand img{width:44px;height:44px}.brand strong{font-size:19px}.intro{min-height:340px;padding:26px 23px;border-radius:22px}.intro h1{font-size:43px}.intro>p{font-size:13px;max-width:280px}.study-art{width:125px}.login-card{padding:28px 21px 22px}.login-card h2{font-size:25px}.form-options{font-size:10px}}
+
+/* Shared dark theme for all authentication pages */
+body.dark {
+  color-scheme: dark;
+  --bg: #0b1428;
+  --ink: #edf3ff;
+  --muted: #a7b4ca;
+  --line: #2a3957;
+  --white: #14213b;
+  --paper: #14213b;
+  background: var(--bg);
+  color: var(--ink);
+}
+body.dark .topbar { border-color: var(--line); }
+body.dark .brand { color: var(--ink); }
+body.dark .theme-toggle {
+  color: #fff;
+  background: #172743;
+  border-color: var(--line);
+}
+body.dark .login-card,
+body.dark .register-card,
+body.dark .recovery {
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: none;
+  border-color: var(--line);
+}
+body.dark .login-card h2,
+body.dark form > label,
+body.dark .recovery h1,
+body.dark .recovery label { color: var(--ink); }
+body.dark .field-wrap,
+body.dark .recovery input {
+  color: var(--ink);
+  background: #0f1c35;
+  border-color: var(--line);
+}
+body.dark .field-wrap input,
+body.dark .recovery input { color: var(--ink); }
+body.dark .field-wrap input::placeholder,
+body.dark .recovery input::placeholder { color: #8796b0; }
+body.dark .separator::before,
+body.dark .separator::after { background: var(--line); }
+body.dark .create-link {
+  color: #8dbbff;
+  background: #10213c;
+  border-color: #35547d;
+}
+body.dark .security-note { color: #9aa9c1; }
+body.dark .recovery a { color: #8dbbff; }
+body.dark footer { color: var(--muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  body, .login-card, .recovery, .field-wrap, .theme-toggle {
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+  }
+}
